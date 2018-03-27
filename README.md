@@ -1,22 +1,6 @@
-<h1>ศึกษาเรื่อง system และ socket programming</h1>
+<h1>จิปาถะเรื่อง programming</h1>
 
-<h2>รู้จักกับ process</h2>
+<h2>1. MPICH installation and testing</h2>
 <p><p>
-นศ คงจะคุ้นเคยกับโปรแกรม hello-world ภาษา C กันมาแล้ว คือ
-<pre>
-#include <stdio.h>
-
-int main() {
-  printf("Hello World\n"); 
-}
-</pre>
-จริงๆแล้วจะเท่าเทียมกับ 
-<pre>
-#include <stdio.h>
-
-int main(int argc, char * argv[]) {
-  printf("Hello World\n"); 
-}
-</pre>
-ขอให้ นศ ศึกษาบทที่ 9 ของ textbook เพือพิจารณาว่า argc และ argv คืออะไรมีไว้ทำอะไร
+ในหัวข้อนี้ผมจะติดตั้ง MPICH บน cluster ที่ประกอบด้วย 8 nodes ซึ่งในที่นี้กำหนดให้เป็น VMs ชื่อ 
 <p><p>
