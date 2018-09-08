@@ -18,3 +18,232 @@ $ cat /etc/hosts
 </pre>
 จะเห็นว่ามี IP addresses สอง subnets คือ 10.90.0.0/24 และ 192.168.90.0/24  
 <p><p>
+<h2>2. รันโปรแกรม terasort hadoop benchmark บน cloudera 5.13 quickstart VM </h2>
+<p><p>
+การรัน terasort benchmark ใช้คำสั่งต่อไปนี้ ขั้นแรก หาไฟล์ hadoop-mapreduce-examples.jar
+<pre>
+$ find /usr/ -name hadoop-*examples*.jar
+find: `/usr/lib64/audit': Permission denied
+/usr/lib/hue/apps/oozie/examples/lib/hadoop-examples.jar
+/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples-2.6.0-cdh5.13.0.jar
+/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
+/usr/lib/hadoop-0.20-mapreduce/hadoop-examples-mr1.jar
+/usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar
+/usr/lib/hadoop-0.20-mapreduce/hadoop-examples-2.6.0-mr1-cdh5.13.0.jar
+/usr/share/doc/hadoop-0.20-mapreduce/examples/hadoop-examples.jar
+/usr/share/doc/hadoop-0.20-mapreduce/examples/hadoop-examples-2.6.0-mr1-cdh5.13.0.jar
+$
+</pre>
+ขั้นสอง รัน teragen เพื่อสร้างไฟล์ 5MB 
+<pre>
+<b>$ hadoop jar hadoop-mapreduce-examples.jar teragen 50000 terasort-input</b>
+Not a valid JAR: /home/cloudera/kasidit/hadoop-mapreduce-examples.jar
+[cloudera@quickstart kasidit]$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar  teragen 50000 ./terasort-input
+18/09/08 11:05:18 INFO client.RMProxy: Connecting to ResourceManager at quickstart.cloudera/10.90.0.21:8032
+18/09/08 11:05:19 INFO terasort.TeraGen: Generating 50000 using 2
+18/09/08 11:05:19 INFO mapreduce.JobSubmitter: number of splits:2
+18/09/08 11:05:20 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1536426895125_0003
+18/09/08 11:05:20 INFO impl.YarnClientImpl: Submitted application application_1536426895125_0003
+18/09/08 11:05:20 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1536426895125_0003/
+18/09/08 11:05:20 INFO mapreduce.Job: Running job: job_1536426895125_0003
+18/09/08 11:05:28 INFO mapreduce.Job: Job job_1536426895125_0003 running in uber mode : false
+18/09/08 11:05:28 INFO mapreduce.Job:  map 0% reduce 0%
+18/09/08 11:05:33 INFO mapreduce.Job:  map 100% reduce 0%
+18/09/08 11:05:34 INFO mapreduce.Job: Job job_1536426895125_0003 completed successfully
+18/09/08 11:05:34 INFO mapreduce.Job: Counters: 31
+        File System Counters
+                FILE: Number of bytes read=0
+                FILE: Number of bytes written=294162
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=164
+                HDFS: Number of bytes written=5000000
+                HDFS: Number of read operations=8
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=4
+        Job Counters
+                Launched map tasks=2
+                Other local map tasks=2
+                Total time spent by all maps in occupied slots (ms)=3629056
+                Total time spent by all reduces in occupied slots (ms)=0
+                Total time spent by all map tasks (ms)=7088
+                Total vcore-milliseconds taken by all map tasks=7088
+                Total megabyte-milliseconds taken by all map tasks=3629056
+        Map-Reduce Framework
+                Map input records=50000
+                Map output records=50000
+                Input split bytes=164
+                Spilled Records=0
+                Failed Shuffles=0
+                Merged Map outputs=0
+                GC time elapsed (ms)=84
+                CPU time spent (ms)=2960
+                Physical memory (bytes) snapshot=283983872
+                Virtual memory (bytes) snapshot=1503252480
+                Total committed heap usage (bytes)=98566144
+        org.apache.hadoop.examples.terasort.TeraGen$Counters
+                CHECKSUM=107145675668275
+        File Input Format Counters
+                Bytes Read=0
+        File Output Format Counters
+                Bytes Written=5000000
+$
+</pre>
+ถัดไป sort ด้วย terasort 
+<pre>
+$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar  terasort ./terasort-input ./terasort-output
+18/09/08 11:07:45 INFO terasort.TeraSort: starting
+18/09/08 11:07:47 INFO input.FileInputFormat: Total input paths to process : 2
+Spent 129ms computing base-splits.
+Spent 3ms computing TeraScheduler splits.
+Computing input splits took 133ms
+Sampling 2 splits of 2
+Making 1 from 50000 sampled records
+Computing parititions took 558ms
+Spent 694ms computing partitions.
+18/09/08 11:07:47 INFO client.RMProxy: Connecting to ResourceManager at quickstart.cloudera/10.90.0.21:8032
+18/09/08 11:07:48 INFO mapreduce.JobSubmitter: number of splits:2
+18/09/08 11:07:49 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1536426895125_0004
+18/09/08 11:07:49 INFO impl.YarnClientImpl: Submitted application application_1536426895125_0004
+18/09/08 11:07:49 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1536426895125_0004/
+18/09/08 11:07:49 INFO mapreduce.Job: Running job: job_1536426895125_0004
+18/09/08 11:07:56 INFO mapreduce.Job: Job job_1536426895125_0004 running in uber mode : false
+18/09/08 11:07:56 INFO mapreduce.Job:  map 0% reduce 0%
+18/09/08 11:08:02 INFO mapreduce.Job:  map 100% reduce 0%
+18/09/08 11:08:08 INFO mapreduce.Job:  map 100% reduce 100%
+18/09/08 11:08:09 INFO mapreduce.Job: Job job_1536426895125_0004 completed successfully
+18/09/08 11:08:09 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=2164979
+                FILE: Number of bytes written=4777781
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=5000276
+                HDFS: Number of bytes written=5000000
+                HDFS: Number of read operations=9
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters
+                Launched map tasks=2
+                Launched reduce tasks=1
+                Data-local map tasks=2
+                Total time spent by all maps in occupied slots (ms)=3776000
+                Total time spent by all reduces in occupied slots (ms)=2116608
+                Total time spent by all map tasks (ms)=7375
+                Total time spent by all reduce tasks (ms)=4134
+                Total vcore-milliseconds taken by all map tasks=7375
+                Total vcore-milliseconds taken by all reduce tasks=4134
+                Total megabyte-milliseconds taken by all map tasks=3776000
+                Total megabyte-milliseconds taken by all reduce tasks=2116608
+        Map-Reduce Framework
+                Map input records=50000
+                Map output records=50000
+                Map output bytes=5100000
+                Map output materialized bytes=2166940
+                Input split bytes=276
+                Combine input records=0
+                Combine output records=0
+                Reduce input groups=50000
+                Reduce shuffle bytes=2166940
+                Reduce input records=50000
+                Reduce output records=50000
+                Spilled Records=100000
+                Shuffled Maps =2
+                Failed Shuffles=0
+                Merged Map outputs=2
+                GC time elapsed (ms)=122
+                CPU time spent (ms)=5470
+                Physical memory (bytes) snapshot=439963648
+                Virtual memory (bytes) snapshot=2262458368
+                Total committed heap usage (bytes)=146276352
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=5000000
+        File Output Format Counters
+                Bytes Written=5000000
+18/09/08 11:08:09 INFO terasort.TeraSort: done
+$
+</pre>
+ต่อไปก็ตรวจความถูกต้องด้วย teravalidate
+<pre>
+$ hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar  teravalidate ./terasort-output ./terasort-validate
+18/09/08 11:10:02 INFO client.RMProxy: Connecting to ResourceManager at quickstart.cloudera/10.90.0.21:8032
+18/09/08 11:10:03 INFO input.FileInputFormat: Total input paths to process : 1
+Spent 19ms computing base-splits.
+Spent 2ms computing TeraScheduler splits.
+18/09/08 11:10:03 INFO mapreduce.JobSubmitter: number of splits:1
+18/09/08 11:10:04 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1536426895125_0005
+18/09/08 11:10:04 INFO impl.YarnClientImpl: Submitted application application_1536426895125_0005
+18/09/08 11:10:04 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1536426895125_0005/
+18/09/08 11:10:04 INFO mapreduce.Job: Running job: job_1536426895125_0005
+18/09/08 11:10:11 INFO mapreduce.Job: Job job_1536426895125_0005 running in uber mode : false
+18/09/08 11:10:11 INFO mapreduce.Job:  map 0% reduce 0%
+18/09/08 11:10:16 INFO mapreduce.Job:  map 100% reduce 0%
+18/09/08 11:10:22 INFO mapreduce.Job:  map 100% reduce 100%
+18/09/08 11:10:23 INFO mapreduce.Job: Job job_1536426895125_0005 completed successfully
+18/09/08 11:10:23 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=97
+                FILE: Number of bytes written=295199
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=5000139
+                HDFS: Number of bytes written=22
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=1764352
+                Total time spent by all reduces in occupied slots (ms)=1749504
+                Total time spent by all map tasks (ms)=3446
+                Total time spent by all reduce tasks (ms)=3417
+                Total vcore-milliseconds taken by all map tasks=3446
+                Total vcore-milliseconds taken by all reduce tasks=3417
+                Total megabyte-milliseconds taken by all map tasks=1764352
+                Total megabyte-milliseconds taken by all reduce tasks=1749504
+        Map-Reduce Framework
+                Map input records=50000
+                Map output records=3
+                Map output bytes=80
+                Map output materialized bytes=93
+                Input split bytes=139
+                Combine input records=0
+                Combine output records=0
+                Reduce input groups=3
+                Reduce shuffle bytes=93
+                Reduce input records=3
+                Reduce output records=1
+                Spilled Records=6
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=77
+                CPU time spent (ms)=2280
+                Physical memory (bytes) snapshot=305377280
+                Virtual memory (bytes) snapshot=1522327552
+                Total committed heap usage (bytes)=97517568
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=5000000
+        File Output Format Counters
+                Bytes Written=22
+$
+</pre>
