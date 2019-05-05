@@ -133,7 +133,24 @@ openstack@cs715host2:~$
 </pre>
 บน VM2
 <pre>
-
+$ sudo apt install nfs-common
+$ sudo mkdir -p /nfs
+$ sudo mount 192.168.1.11:/nfs /nfs
+$
+$ cd /nfs
+$ sudo mkdir mydir
+$ $ ls -l
+total 4
+drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
+$
+</pre>
+บน VM2
+<pre>
+$ cd /nfs
+$ ls -l
+total 4
+drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
+$
 </pre>
 <p><p>
 <h2>รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
