@@ -144,13 +144,33 @@ total 4
 drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
 $
 </pre>
-บน VM2
+บน VM1
 <pre>
 $ cd /nfs
 $ ls -l
 total 4
 drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
 $
+</pre>
+</pre>
+บน VM2
+<pre>
+$ sudo vi /etcfstab
+$ cat /etc/fstab
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda1 during installation
+UUID=85ddcd59-efed-4a26-936d-d8ca4449a8e8 /               ext4    errors=remount-ro 0       1
+# swap was on /dev/sda5 during installation
+UUID=47a679a2-11db-4d89-a58b-0b450e79e1a1 none            swap    sw              0       0
+192.168.1.11:/nfs    /nfs   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+openstack@cs715host:/nfs$
+$ reboot
 </pre>
 <p><p>
 <h2>รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
