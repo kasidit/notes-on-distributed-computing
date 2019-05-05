@@ -1,7 +1,87 @@
-<h1>จิปาถะเรื่อง programming</h1>
+<h1>จิปาถะเรื่อง distributed programming</h1>
 
-<h2>1. รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
+<h2>ติดตั้ง MPICH บย ubuntu 16/04</h2>
 <p><p>
+ผมสร้างเครื่อง Virtual Machine (VM) จำนวน 2 เครื่องโดยใช้ virtual box โดยที่กำหนดให้แต่ละเครื่องมี vcpu 2 cores และ 2 GB RAM และ network interfaces ดังนี้ 
+<ul>
+<li>Interface 1: เป็น NAT 
+<li>Interface 2: เป็น Host-Only Network และอยู่ใน subnet 192.168.56.0/24
+<li>Interface 3: เป็น Internal Network ชื่อ "intnet"
+</ul>
+หลังจากติดตั้ง ubuntu 16.04 บน VM ทั้งสองแล้วให้กำหนด Network interfaces ของ VM เครื่องที่ 1 (VM1) ดังนี้ (เพื่อความสะดวกให้ตั้งข้อกำหนดให้ login id ของคุณสามารถใช้ sudo โดยไม่ใส่พาสเวิด)
+<pre>
+$ ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:85:09:7e brd ff:ff:ff:ff:ff:ff
+3: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:94:55:a4 brd ff:ff:ff:ff:ff:ff
+4: enp0s9: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 08:00:27:e8:55:24 brd ff:ff:ff:ff:ff:ff
+$ 
+$ sudo nano /etc/network/interfaces
+$ cat /etc/network/interfaces 
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto enp0s3
+iface enp0s3 inet dhcp
+
+auto enp0s8
+iface enp0s8 inet dhcp
+
+auto enp0s9
+iface enp0s9 inet static
+address 192.168.1.11
+netmask 255.255.255.0
+network 192.168.1.0
+
+$ sudo reboot
+</pre>
+Reboot เครื่องเพื่อให้ network interface enp0s9 เป็น 192.168.1.11
+<p><p>
+สำหรับ VM เครื่องที่ 2 (VM2) ให้กำหนด network configuration ดังนี้ 
+<pre>
+$ sudo nano /etc/network/interfaces
+$ cat /etc/network/interfaces 
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto enp0s3
+iface enp0s3 inet dhcp
+
+auto enp0s8
+iface enp0s8 inet dhcp
+
+auto enp0s9
+iface enp0s9 inet static
+address 192.168.1.12
+netmask 255.255.255.0
+network 192.168.1.0
+
+$ sudo reboot
+</pre>
+ทำเหมือน VM1 เพื่อกำหนดค่า enp0s9 เป็น 192...12
+
+<p><p>
+<h2>รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
+<p><p>
+ผมเขียนอันนี้นานแล้ว ไม่เกี่ยวกับข้างบน        
 ในหัวข้อนี้ผมจะติดตั้ง MPICH บน cluster ที่ประกอบด้วย 4 nodes ซึ่งในที่นี้กำหนดให้เป็น VMs ชื่อ shibuya-1, shibuya-2, shibuya-6, shibuya-7 ดังที่ระบุใน /etc/hosts ไฟล์ข้างล่าง
 <pre>
 $ cat /etc/hosts
@@ -247,3 +327,5 @@ Spent 2ms computing TeraScheduler splits.
                 Bytes Written=22
 $
 </pre>
+
+
