@@ -27,11 +27,11 @@ $ cat /etc/network/interfaces
 
 source /etc/network/interfaces.d/*
 
-# The loopback network interface
+#The loopback network interface
 auto lo
 iface lo inet loopback
 
-# The primary network interface
+#The primary network interface
 auto enp0s3
 iface enp0s3 inet dhcp
 
@@ -57,11 +57,11 @@ $ cat /etc/network/interfaces
 
 source /etc/network/interfaces.d/*
 
-# The loopback network interface
+#The loopback network interface
 auto lo
 iface lo inet loopback
 
-# The primary network interface
+#The primary network interface
 auto enp0s3
 iface enp0s3 inet dhcp
 
