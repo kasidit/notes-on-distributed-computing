@@ -76,8 +76,65 @@ network 192.168.1.0
 
 $ sudo reboot
 </pre>
-ทำเหมือน VM1 เพื่อกำหนดค่า enp0s9 เป็น 192...12
+ทำเหมือน VM1 เพื่อกำหนดค่า enp0s9 เป็น 192.168.1.12
+<p><p>
+    login เข้าไปใน VM ทั้งสองใหม่ ติดตั้ง mpich
+<pre>
+$  sudo apt install mpich
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  g++ g++-5 gfortran gfortran-5 hwloc-nox libcr-dev libcr0 libgfortran-5-dev
+  libgfortran3 libhwloc-plugins libhwloc5 libltdl7 libmpich-dev libmpich12
+  libpciaccess0 libstdc++-5-dev ocl-icd-libopencl1
+Suggested packages:
+  g++-multilib g++-5-multilib gcc-5-doc libstdc++6-5-dbg gfortran-multilib
+  gfortran-doc gfortran-5-multilib gfortran-5-doc libgfortran3-dbg blcr-dkms
+  libhwloc-contrib-plugins libstdc++-5-doc blcr-util mpich-doc opencl-icd
+The following NEW packages will be installed:
+  g++ g++-5 gfortran gfortran-5 hwloc-nox libcr-dev libcr0 libgfortran-5-dev
+  libgfortran3 libhwloc-plugins libhwloc5 libltdl7 libmpich-dev libmpich12
+  libpciaccess0 libstdc++-5-dev mpich ocl-icd-libopencl1
+0 upgraded, 18 newly installed, 0 to remove and 132 not upgraded.
+Need to get 21.0 MB of archives.
+After this operation, 79.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n]y
+....
+....
+$ 
+</pre>
+บน VM1
+<pre>
+$ sudo apt install nfs-kernel-server
+$ 
+openstack@cs715host2:~$ sudo mkdir /nfs
+openstack@cs715host2:~$ sudo vi /etc/exports
+openstack@cs715host2:~$
+openstack@cs715host2:~$
+openstack@cs715host2:~$ sudo vi /etc/exports
+openstack@cs715host2:~$
+openstack@cs715host2:~$
+openstack@cs715host2:~$ sudo systemctl restart nfs-kernel-server
+openstack@cs715host2:~$
+openstack@cs715host2:~$ cat /etc/exports
+# /etc/exports: the access control list for filesystems which may be exported
+#               to NFS clients.  See exports(5).
+#
+# Example for NFSv2 and NFSv3:
+# /srv/homes       hostname1(rw,sync,no_subtree_check) hostname2(ro,sync,no_subtree_check)
+#
+# Example for NFSv4:
+# /srv/nfs4        gss/krb5i(rw,sync,fsid=0,crossmnt,no_subtree_check)
+# /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
+#
+/nfs   192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)
+openstack@cs715host2:~$
+</pre>
+บน VM2
+<pre>
 
+</pre>
 <p><p>
 <h2>รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
 <p><p>
