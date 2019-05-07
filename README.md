@@ -1,14 +1,14 @@
-<h1>จิปาถะเรื่อง distributed programming</h1>
+<h1>Notes on Distributed and Parallel Processing</h1>
 
-<h2>ติดตั้ง MPICH บย ubuntu 16/04</h2>
+<h2>ติดตั้ง MPICH บน ubuntu 16.04</h2>
 <p><p>
 ผมสร้างเครื่อง Virtual Machine (VM) จำนวน 2 เครื่องโดยใช้ virtual box โดยที่กำหนดให้แต่ละเครื่องมี vcpu 2 cores และ 2 GB RAM และ network interfaces ดังนี้ 
 <ul>
 <li>Interface 1: เป็น NAT 
 <li>Interface 2: เป็น Host-Only Network และอยู่ใน subnet 192.168.56.0/24
-<li>Interface 3: เป็น Internal Network ชื่อ "intnet"
+<li>Interface 3: เป็น Internal Network ชื่อ "intnet2"
 </ul>
-หลังจากติดตั้ง ubuntu 16.04 บน VM ทั้งสองแล้วให้กำหนด Network interfaces ของ VM เครื่องที่ 1 (VM1) ดังนี้ (เพื่อความสะดวกให้ตั้งข้อกำหนดให้ login id ของคุณสามารถใช้ sudo โดยไม่ใส่พาสเวิด)
+หลังจากติดตั้ง ubuntu 16.04 บน VM ทั้งสองแล้ว ผมเข้าไปกำหนดค่าใน /etc/sudoers เพื่อให้ login id ของผม (ในตัวอย่างนี้ผมใช้ชื่อ account ว่า "openstack") ให้สามารถใช้ sudo ได้โดยไม่ใส่พาสเวิด และผมกำหนด Network interfaces ของ VM เครื่องที่ 1 (VM1) ให้มีค่าดังนี้ ()
 <pre>
 $ ip link
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1
@@ -24,61 +24,61 @@ $ sudo nano /etc/network/interfaces
 $ cat /etc/network/interfaces 
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
-
+#
 source /etc/network/interfaces.d/*
-
-#The loopback network interface
+#
+# The loopback network interface
 auto lo
 iface lo inet loopback
-
-#The primary network interface
+#
+# The primary network interface
 auto enp0s3
 iface enp0s3 inet dhcp
-
+#
 auto enp0s8
 iface enp0s8 inet dhcp
-
+#
 auto enp0s9
 iface enp0s9 inet static
 address 192.168.1.11
 netmask 255.255.255.0
 network 192.168.1.0
-
+#
 $ sudo reboot
 </pre>
-Reboot เครื่องเพื่อให้ network interface enp0s9 เป็น 192.168.1.11
+Reboot เครื่องเพื่อให้ network interface enp0s9 ของ VM1 เป็น 192.168.1.11
 <p><p>
-สำหรับ VM เครื่องที่ 2 (VM2) ให้กำหนด network configuration ดังนี้ 
+สำหรับ VM เครื่องที่ 2 (VM2) ผมกำหนดค่า network configuration ดังนี้ 
 <pre>
 $ sudo nano /etc/network/interfaces
 $ cat /etc/network/interfaces 
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
-
+#
 source /etc/network/interfaces.d/*
-
-#The loopback network interface
+#
+# The loopback network interface
 auto lo
 iface lo inet loopback
-
-#The primary network interface
+#
+# The primary network interface
 auto enp0s3
 iface enp0s3 inet dhcp
-
+#
 auto enp0s8
 iface enp0s8 inet dhcp
-
+#
 auto enp0s9
 iface enp0s9 inet static
 address 192.168.1.12
 netmask 255.255.255.0
 network 192.168.1.0
-
+#
 $ sudo reboot
 </pre>
-ทำเหมือน VM1 เพื่อกำหนดค่า enp0s9 เป็น 192.168.1.12
+กำหนดค่า IP บน enp0s9 ของ VM2 ให้เป็น 192.168.1.12
 <p><p>
-    login เข้าไปใน VM ทั้งสองใหม่ ติดตั้ง mpich
+login เข้าไปใน VM ทั้งสองใหม่ ติดตั้ง mpich
 <pre>
 $  sudo apt install mpich
 Reading package lists... Done
@@ -104,19 +104,13 @@ Do you want to continue? [Y/n]y
 ....
 $ 
 </pre>
-บน VM1
+ตดตั้ง NFS server บน VM1 สร้าง mount directory และกำหนดค่า /etc/exports
 <pre>
 $ sudo apt install nfs-kernel-server
 $ 
-openstack@cs715host2:~$ sudo mkdir /nfs
-openstack@cs715host2:~$ sudo vi /etc/exports
-openstack@cs715host2:~$
-openstack@cs715host2:~$
-openstack@cs715host2:~$ sudo vi /etc/exports
-openstack@cs715host2:~$
-openstack@cs715host2:~$
-openstack@cs715host2:~$ sudo systemctl restart nfs-kernel-server
-openstack@cs715host2:~$
+$ sudo mkdir /nfs
+$ sudo vi /etc/exports
+$
 openstack@cs715host2:~$ cat /etc/exports
 # /etc/exports: the access control list for filesystems which may be exported
 #               to NFS clients.  See exports(5).
@@ -129,9 +123,11 @@ openstack@cs715host2:~$ cat /etc/exports
 # /srv/nfs4/homes  gss/krb5i(rw,sync,no_subtree_check)
 #
 /nfs   192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)
-openstack@cs715host2:~$
+$
+$ sudo systemctl restart nfs-kernel-server
+$
 </pre>
-บน VM2
+ติดตั้ง NFS client บน VM2 และ Remote Mount NFS server และทดสอบโดยการสร้าง directory "mydir"
 <pre>
 $ sudo apt install nfs-common
 $ sudo mkdir -p /nfs
@@ -144,7 +140,7 @@ total 4
 drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
 $
 </pre>
-บน VM1
+ทดสอบว่า บน VM1 ใน NFS directory มี "mydir" ปรากฏอยู่หรือไม่
 <pre>
 $ cd /nfs
 $ ls -l
@@ -152,8 +148,7 @@ total 4
 drwxr-xr-x 2 root root 4096 May  5 23:51 mydir
 $
 </pre>
-</pre>
-บน VM2
+กำหนดค่าในไฟล์ /etc/fstab บน VM2 ให้ Remote mount ไปยัง NFS directory ตั้งแต่ตอน boot เครื่อง และ reboot เครื่อง
 <pre>
 $ sudo vi /etcfstab
 $ cat /etc/fstab
@@ -169,7 +164,7 @@ UUID=85ddcd59-efed-4a26-936d-d8ca4449a8e8 /               ext4    errors=remount
 # swap was on /dev/sda5 during installation
 UUID=47a679a2-11db-4d89-a58b-0b450e79e1a1 none            swap    sw              0       0
 192.168.1.11:/nfs    /nfs   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
-openstack@cs715host:/nfs$
+$
 $ reboot
 </pre>
 <p><p>
