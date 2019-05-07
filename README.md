@@ -169,9 +169,9 @@ $ reboot
 </pre>
 <p><p>
 สร้าง public และ private keys บน VM1
+<pre>
 
-
-
+</pre>
 <h2>รันโปรแกรม MPI จาก NAS Parallel Benchmark 3.3 ด้วย MPICH </h2>
 <p><p>
 ผมเขียนอันนี้นานแล้ว ไม่เกี่ยวกับข้างบน        
