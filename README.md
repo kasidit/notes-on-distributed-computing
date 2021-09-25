@@ -78,7 +78,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOwEGLCh7fsdYsIRxOINEBf3NtnnSOzlSFbg7qdNC77
 <p>
     ผู้อ่านสามารถนำเข้าพับบลิกคีย์สู่บัญชีผู้ใช้ github โดยทำดังต่อไปนี้
 <p>
-    <kbd><img src="keymenu1.png" width="100"></kbd>
+    <kbd><img src="keymenu1.png" width="200"></kbd>
 <p>
     <i>ภาพ github-5 คีย์ </i><br> 
 <p>
@@ -96,7 +96,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOwEGLCh7fsdYsIRxOINEBf3NtnnSOzlSFbg7qdNC77
 <p>
     <i>ภาพ github-8 คีย์ </i><br> 
 <p>
-    <kbd><img src="keymenu5.png" width="100"></kbd>
+    <kbd><img src="keymenu5.png" width="200"></kbd>
 <p>
     <i>ภาพ github-9 คีย์ </i><br> 
 <p>
