@@ -245,13 +245,56 @@ $
 <p>
 สมมุติว่าผู้ใช้บัญชี github ชื่อ kasidit ต้องการให้ผู้ใช้บัญชี github ชื่อ ckasidit สามารถเข้ามาใช้งาน 
 รีโพสิทอรี่ CS337 ได้ เว็บไซต์ github มีขั้นตอนดังนี้
-
- 
-
-
-
-
-
+<p>
+    <kbd><img src="allow1.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-12 กำหนด setting ให้อนุญาตผู้ใช้อื่นเข้าร่วมใช้รีโพสิทอรี่</i><br> 
+<p><p>
+<p>
+    <kbd><img src="allow2.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-13 </i><br> 
+<p><p>
+<p>
+    <kbd><img src="allow3.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-14 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow4.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-15 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow5.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-16 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow6.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-17 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow7.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-18 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow8.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-19 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow9.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-20 </i><br> 
+<p><p> 
+<p>
+    <kbd><img src="allow10.png" width="700"></kbd>
+<p>
+    <i>ภาพ github-21 </i><br> 
+<p><p>
 
 
 
