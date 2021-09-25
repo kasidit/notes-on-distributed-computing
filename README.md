@@ -202,25 +202,22 @@ git commit เป็นครั้งแรก คำสั่ง git จะแ
 <p>
     ในการอัพโหลดข้อมูล ผู้อ่านจะต้องใช้คำสั่ง git remote add เพื่อกำหนดให้คำสั่ง git รู้ว่าจะต้องอัพโหลดข้อมูลไป
 ที่ ssh เซิร์ฟเวอร์และรีโพสิทอรี่ใดของ github และให้ชื่อว่าเป็น origin แล้วหลังจากนั้นก็จะออกคำสั่ง git push origin master 
-เพื่อกำหนดชื่อ เวอร์ชั่นหลักหรือสาขา (branch) ของรีโพสิทอรี่ CS337 ที่จะอัพโหลดข้อมูลจากไดเรกทอรี่นี้ขึ้นไปว่าชื่อ master
+เพื่อกำหนดชื่อ เวอร์ชั่นหลักหรือสาขา (branch) ของรีโพสิทอรี่ CS337 ที่จะอัพโหลดข้อมูลจากไดเรกทอรี่นี้ขึ้นไปว่าชื่อ main 
+ซึ่งเป็นสาขาดีฟอลต์
 โดยใช้คำสั่งต่อไปนี้ 
 <pre>
+$ git branch -M main
 $ git remote add origin git@github.com:kasidit/CS337.git
-$ git push origin master
-Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+$ git push origin main
 Enter passphrase for key '/home/openstack/.ssh/id_ed25519': 
 Enumerating objects: 6, done.
 Counting objects: 100% (6/6), done.
 Delta compression using up to 6 threads
 Compressing objects: 100% (2/2), done.
-Writing objects: 100% (5/5), 416 bytes | 208.00 KiB/s, done.
+Writing objects: 100% (5/5), 415 bytes | 415.00 KiB/s, done.
 Total 5 (delta 0), reused 0 (delta 0)
-remote: 
-remote: Create a pull request for 'master' on GitHub by visiting:
-remote:      https://github.com/kasidit/CS337/pull/new/master
-remote: 
 To github.com:kasidit/CS337.git
- * [new branch]      master -> master
+   d6017a0..b82769b  main -> main
 $
 </pre>
 ขอให้สังเกตุว่า เมื่อใช้คำสั่ง git push ผู้อ่านจะต้องป้อนพาสเฟสเพื่อถอดรหัสของไพรเวทคีย์
