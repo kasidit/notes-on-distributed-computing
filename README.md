@@ -76,21 +76,24 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOwEGLCh7fsdYsIRxOINEBf3NtnnSOzlSFbg7qdNC77
 <p><p>
 <h3>3. นำเข้าพับบลิกคีย์เข้าสู่เว็บไซต์ github </h3>
 <p>
-    ผู้อ่านสามารถนำเข้าพับบลิกคีย์สู่บัญชีผู้ใช้ github โดยทำดังต่อไปนี้
+    ผู้อ่านสามารถนำเข้าพับบลิกคีย์สู่บัญชีผู้ใช้ github โดยกดปุ่มขยายเมนูที่ไอคอนของบัญชีของผู้อ่านดังภาพที่ github-5 และเลือก Settings
 <p>
     <kbd><img src="keymenu1.png" width="200"></kbd>
 <p>
-    <i>ภาพ github-5 คีย์ </i><br> 
+    <i>ภาพ github-5 เลือก Settings จากเมนู</i><br> 
 <p>
-    
+    หลังจากนั้น github จะแสดงเว็บเพจ Settings ดังภาพ github-6 ซึ่งผู้อ่านจะเลือกกด SSH and GPG keys แทบทางด้านซ้ายของเพจ
 <p>
     <kbd><img src="keymenu2.png" width="800"></kbd>
 <p>
-    <i>ภาพ github-6 คีย์ </i><br> 
+  <i>ภาพ github-6 เว็บเพจ Settings</i><br>
+<p> github จะแสดงหน้าจอถัดไปคือแสดงรายการ Keys ที่ผู้อ่านมี ในกรณีที่ผู้อ่านไม่เคยนำเข้า SSH public key ใดมาก่อนก็จะไม่มีรายการคีย์ปรากฏ แต่ถ้าผู้อ่านเคยนำเข้าคีย์ไม่ว่าจะเป็น SSH Keys หรือ GPG Keys มาแล้วก็จะปรากฏรายการของพับบลิกคีย์เหล่านั้นดังตัวอย่างในภาพ github-7 
 <p>
     <kbd><img src="keymenu3.png" width="800"></kbd>
 <p>
     <i>ภาพ github-7 คีย์ </i><br> 
+<p>
+    การที่ผู้อ่านสามารถนำ
 <p>
     <kbd><img src="keymenu4.png" width="800"></kbd>
 <p>
