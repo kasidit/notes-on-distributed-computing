@@ -1,10 +1,13 @@
 <h1>Notes on Distributed and Parallel Processing</h1>
 
-<h2>การสร้าง github repository สำหรับส่ง Assignments<h2>
+<h2>การสร้าง github repository สำหรับส่ง Assignments</h2>
+<p><p>
 ก่อนอื่นผู้อ่านต้องสร้างบัญชีใน github ซึ่งขอให้ศึกษาเองจาก github.com เว็บไซต์ ในโน๊ตนี้เราสมมุติว่าผู้อ่านมีบัญชีใน github แล้ว 
 และจะอธิบายการสร้างรีโพสิทอรี่ (repository) ใหม่และ upload ไฟล์เข้าสู่รีโพสิทอรี่นั้น ด้วย ssh โดยผู้เขียนจะบรรยายขั้นตอนดังนี้
 <p><p>
-1. สร้างรีโพสิทอรี่ใหม่บนเว็บไซต์ github.com
+1. สร้างรีโพสิทอรี่ใหม่บนเว็บไซต์ github.com <br>
+<p>
+    
     
 <h2>ติดตั้ง MPICH บน ubuntu 16.04</h2>
 <p><p>
