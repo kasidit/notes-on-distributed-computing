@@ -67,10 +67,42 @@ The key's randomart image is:
 $ 
 </pre>
 คำสั่งข้างต้นจะเข้ารหัสไพรเวทคีย์ด้วยพาสเฟส (passphrase) ที่ผู้อ่านป้อนให้ ในกรณีที่ผู้อ่านไม่ใส่พาสเฟส คำสั่ง ssh-keygen ก็จะไม่เข้ารหัสไพรเวทคีย์ (ซึ่งถ้าไฟล์ถูกก็อปปี้โดยผู้ที่ไม่ได้รับอนุญาตไฟล์คีย์ก็จะถูกนำไปใช้ได้เลย) หลังจากนั้น ssh-keygen จะเก็บไพรเวทคีย์ไว้ที่ไฟล์ $HOME/.ssh/id_ed25519 และเก็บพับบลิกคีย์ที่ $HOME/.ssh/id_ed25519.pub
+<p>
+    ผู้อ่านอาจพิมพ์ข้อความพับบลิกคีย์บนหน้าจอเพื่อนำไปใช้ในขั้นตอนต่อไป
+<pre>
+$ cat $HOME/.ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOwEGLCh7fsdYsIRxOINEBf3NtnnSOzlSFbg7qdNC77 openstack@vm4
+</pre>
 <p><p>
 <h3>3. นำเข้าพับบลิกคีย์เข้าสู่เว็บไซต์ github </h3>
 <p>
-
+    ผู้อ่านสามารถนำเข้าพับบลิกคีย์สู่บัญชีผู้ใช้ github โดยทำดังต่อไปนี้
+<p>
+    <kbd><img src="keymeu1.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-5 คีย์ </i><br> 
+<p>
+    
+<p>
+    <kbd><img src="keymeu2.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-6 คีย์ </i><br> 
+<p>
+    <kbd><img src="keymeu3.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-7 คีย์ </i><br> 
+<p>
+    <kbd><img src="keymeu4.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-8 คีย์ </i><br> 
+<p>
+    <kbd><img src="keymeu5.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-9 คีย์ </i><br> 
+<p>
+    <kbd><img src="keymeu6.png" width="800"></kbd>
+<p>
+    <i>ภาพ github-10 คีย์ </i><br> 
 <p><p>
 <h3>4. สร้างหรือระบุไดเรกทอรี่ที่ต้องการจะ upload ข้อมูล </h3>
 <p>
