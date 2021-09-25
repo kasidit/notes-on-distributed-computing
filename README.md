@@ -12,15 +12,16 @@
 <img src="newrepo.png" width="950" height="150">
 <p>
 ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
-<p>
+<p><p>
     หลังจากนั้น บนหน้าเว็บเพจในภาพ github-2 กำหนดค่าชื่อเป็น CS337 และให้เป็น private (โดยที่ผู้อ่านจะสามารถระบุชื่อบัญชีผู้ใช้ระบบ github คนอื่นให้เข้ามาดูหรือร่วมใช้รีโพสิทอรี่นี้ได้ในภายหลัง)
     และกำหนดให้สร้างไฟล์ readme ตั้งแต่แรก สุดท้ายให้กด Create Repository ก็จะได้เว็บเพจดังภาพ github-3
 <p>
 <img src="repodetails.png" width="850" height="700">
 <p>
-ภาพ github-2 กรอกรายละเอียดรีโพสิทอรี่ใหม่ <br>  
+ภาพ github-2 กรอกรายละเอียดรีโพสิทอรี่ใหม่ <br>
+<p><p>
 <p>
-<img src="repocreated.png" width="850" height="600">
+<img src="repocreated.png" width="850" height="500">
 <p>
 ภาพ github-3 หนเารีโพสิทอรี่ใหม่ <br> 
 
