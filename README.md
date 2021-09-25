@@ -9,7 +9,7 @@
 <p>
     ผู้อ่านต้องกดปุ่มเครื่องหมายบวกข้างไอคอนของบัญชีของผู้อ่านและเลือก New repository และเว็บไซด์จะแสดงหน้าเว็บดังภาพ github-1
 <p>
-<img src="newrepo.png" width="800" height="150">
+<img src="newrepo.png" width="900" height="150">
 <p>
 ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
 <p>
