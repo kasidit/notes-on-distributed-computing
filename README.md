@@ -12,19 +12,19 @@
     <kbd><img src="newrepo.png" width="800" ></kbd>
 <p>
 <p>
-ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
+    <i>ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ </i><br> 
 <p><p>
     หลังจากนั้น บนหน้าเว็บเพจในภาพ github-2 กำหนดค่าชื่อเป็น CS337 และให้เป็น private (โดยที่ผู้อ่านจะสามารถระบุชื่อบัญชีผู้ใช้ระบบ github คนอื่นให้เข้ามาดูหรือร่วมใช้รีโพสิทอรี่นี้ได้ในภายหลัง)
     และกำหนดให้สร้างไฟล์ readme ตั้งแต่แรก สุดท้ายให้กด Create Repository ก็จะได้เว็บเพจดังภาพ github-3
 <p>
     <kbd><img src="repodetails.png" width="800" ></kbd>
 <p>
-ภาพ github-2 กรอกรายละเอียดรีโพสิทอรี่ใหม่ <br>
+    <i>ภาพ github-2 กรอกรายละเอียดรีโพสิทอรี่ใหม่ </i><br>
 <p><p>
 <p>
     <kbd><img src="repocreated.png" width="800" ></kbd>
 <p>
-ภาพ github-3 รีโพสิทอรี่ใหม่ <br> 
+    <i>ภาพ github-3 รีโพสิทอรี่ใหม่ </i><br> 
 <p><p>
     หลังจากนั้น ให้ผู้อ่านกดปุ่ม code และเลือกแทบ ssh (ขีดเส้นใต้สีส้ม) ดังภาพ github-4 และจำค่า
 <pre>
@@ -35,10 +35,40 @@ git@github.com:kasidit/CS337.git
 <p>
     <kbd><img src="repossh.png" width="800"></kbd>
 <p>
-ภาพ github-4 ชื่อรีโพสิทอรี่แบบ ssh <br> 
+    <i>ภาพ github-4 ชื่อรีโพสิทอรี่แบบ ssh </i><br> 
 <p><p>
-<h3>2. สร้างไดเรกทอรี่ที่ต้องการจะ upload ข้อมูลและสร้างคีย์ </h3><br>
+<h3>2. สร้างคีย์และสร้างไดเรกทอรี่ที่ต้องการจะ upload ข้อมูลและ </h3><br>
 <p>
+    ผู้อ่านต้องล็อกอินเข้าสู่เครื่องที่มีข้อมูลที่ต้องการจะอัพโหลดขึ้นสู่ github แล้วออกคำสั่งต่อไปนี้เพื่อสร้างคีย์ ซึ่งผู้เขียนจะสร้างคีย์แบบ ed25519 เนื่องจากมีขนาดเล็กและมีความปลอดภัยสูง โดยที่เราจะกำหนดให้คำสั่ง ssh-keygen จะสร้างไพรเวทคีย์ (private key) ไว้ในไฟล์ชื่อ mygitkey และสร้างพับบลิกคีย์ไว้ในไฟล์ชื่อ mygitkey.pub 
+<pre>
+$ ssh-keygen -t ed25519 -f mygitkey
+Generating public/private ed25519 key pair.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in mygitkey
+Your public key has been saved in mygitkey.pub
+The key fingerprint is:
+SHA256:mA5j2NZ3... @flyvm
+The key's randomart image is:
++--[ED25519 256]--+
+|     ...o. ..    |
+|    .o *.o..     |
+|    o.B . +      |
+|   o.= O . .     |
+|. ..* % S +      |
+|.o.o B + = o .   |
+|E +.  o . o +    |
+| .++     . +     |
+| o...     .      |
++----[SHA256]-----+
+$ ls 
+mygitkey  mygitkey.pub
+$ ls -l mygitkey*
+-rw------- 1 kasidit kasidit 444 Sep 25 22:24 mygitkey
+-rw-r--r-- 1 kasidit kasidit  95 Sep 25 22:24 mygitkey.pub
+$ 
+</pre>
+
     
 <h2>ติดตั้ง MPICH บน ubuntu 16.04</h2>
 <p><p>
