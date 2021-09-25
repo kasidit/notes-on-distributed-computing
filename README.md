@@ -113,6 +113,134 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOwEGLCh7fsdYsIRxOINEBf3NtnnSOzlSFbg7qdNC77
 <p><p>
 <h3>4. สร้างหรือระบุไดเรกทอรี่ที่ต้องการจะ upload ข้อมูล </h3>
 <p>
+กลับมาที่เครื่องคอมพิวเตอร์ที่ผู้อ่านต้องการอัพโหลดข้อมูลเข้าสู่ github ซึ่งในที่นี้เราสมมุติว่าผู้อ่านต้องการอัพโหลดข้อมูลจากเครื่อง ubuntu ที่ผู้อ่านสร้างคู่คีย์ SSH ก่อนหน้า 
+ซึ่งผู้อ่านจะเริ่มต้นจากไดเรกทอรี่ $HOME และสร้างไดเรกทอรี่ย่อยชื่อ CS337 สำหรับเก็บข้อมูลที่ผู้อ่านต้องการจะอัพโหลดเข้าสู่ github รีโพสิทอรี่ CS337 ในบัญชี github 
+ของผู้อ่าน และดาวน์โหลดไฟล์และไดเรกทอรี่จากรีโพสิทอรี่นั้นมายังพื้นที่ไดเรกทอรี่ที่สร้างขึ้นบนเครื่อง ubuntu นี้
+<pre>
+$ cd $HOME 
+$ mkdir CS337
+$ cd CS337
+</pre>
+เมื่อผู้อ่าน cd เข้าสู่ไดเรกทอรี่ CS337 ผู้อ่านจะต้องออกคำสั่ง git init เพื่อตั้งค่าเริ่มต้นให้ git ซึ่งคำสั่งจะสร้างไดเรกทอรี่ย่อยชื่อ .git ใน CS337 เพื่อเก็บค่า
+สถานะการปฏิบัติงานของ github และในอันดับถัดไป ผู้อ่านต้องดาวน์โหลดข้อมูลในรีโพสิทอรี่ในบัญชี github ที่ผู้อ่านต้องการจะอัพโหลดและดาวน์โหลดข้อมูล ซึ่งเนื่องจากผู้อ่านได้สร้าง
+รีโพสิทอรี่ CS337 นี้บนเว็บไซต์ github ในขั้นตอนก่อนหน้า ดังนั้นก่อนที่ผู้อ่านจะสามารถอัพโหลดข้อมูลใหม่เข้าสู่รีโพรี่ CS377 จากไดเรกทอรี่ $HOME/CS337 นี้ได้ ผู้อ่านจะต้องทำ
+ให้ข้อมูลที่อยู่บน github และบนเครื่องคอมพิวเตอร์ของผู้อ่านเหมือนกันก่อน ด้วยคำสั่งต่อไปนี้
+<pre>
+$ git init
+Initialized empty Git repository in /home/openstack/CS337/.git/
+$ 
+$ git pull git@github.com:kasidit/CS337.git
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,20.205.243.166' (RSA) to the list of known hosts.
+Enter passphrase for key '/home/openstack/.ssh/id_ed25519':
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 584 bytes | 584.00 KiB/s, done.
+From github.com:kasidit/CS337
+ * branch            HEAD       -> FETCH_HEAD
+$
+</pre>
+    จากคำสั่งที่ใช้ ผู้อ่านจะใช้คำสั่ง git pull เพื่อดาวน์โหลดข้อมูลจากรีโพสิทอรี่ CS337 บน github มายังไดเรกทอรี่ CS337 
+ขอให้สังเกตุว่าผู้อ่านต้องใส่ค่า git@github.com:kasidit/CS337.git แทนที่จะเป็น URL ของรีโพสิทอรี่คือ 
+https://github.com/kasidit/CS337.git ทั้งนี้เพราะผู้อ่านจะใช้ SSH และคู่คีย์ SSH ในการดาวน์โหลดและอัพโหลด
+ข้อมูลระหว่างรีโพสิทอรี่กับไดเรกทอรี่บนเครื่องคอมพิวเตอร์อ่าน ในทางกลับกันถ้าผุ้อ่านต้องการดาวน์โหลดและอัพโหลดด้วยโปรโตคอล https 
+ผู้อ่านจะต้่องใช้ URL แต่ผู้เขียนไม่ได้เขียนอธิบายไว้ในที่นี้เนื่องจากการใช้ SSH นั้นปลอดภัยกว่า และมีข่าวว่า github อาจ
+ไม่อนุญาตให้ใช้ https อัพโหลดข้อมูลในอนาคต
+<p>
+    ในการดาวน์โหลด github กำหนดให้เราจะใช้คำสั่ง git pull ในขณะที่เราจะต้องใช้คำสั่ง git push ในการอัพโหลด 
+ในการดาวน์โหลด เนื่องจากเป็นการติดต่อกับเซิร์ฟเวอร์ของ github ครั้งแรก ssh จึงถามผุ้ใช้ให้คอนเฟิร์มความถูกต้อง แล้วหลังจากนั้น
+ก็จะถามหาพาสเฟส เพื่อจะได้นำไปถอดรหัสไพรเวทคีย์เพื่อนำไปใช้สร้างช่องทางเชื่อมต่อที่ถูกเข้ารหัสแบบ ssh ซึ่งคำสั่ง git pull จะดาวน์โหลด
+ไฟล์ README.md ซึ่งมีเนื้อหาคือ \# CS337 ในนั้นมาไว้ในไดเรกทอรี่ CS337 
+<p>
+    หลังจากนั้น ผู้อ่านจะสร้างไฟล์ ชื่อ myfirstfile.txt และสร้างไดเรกทอรี่ย่อยชื่อ Assign1 และสร้างไฟล์ file1.txt ในนั้น
+<pre>
+$ ls
+README.md
+$ cat README.md
+# CS337 $ 
+$ cat > myfirstfile.txt
+Hello World!
+for CS337
+$ 
+$ mkdir Assign1
+$ echo "my first assignment" > Assign1/file1.txt
+</pre>
+ในอันดับถัดไป ผู้อ่านต้องใช้คำสั่ง git add เพื่อ add ไดเรกทอรี่และไฟล์ทั้งหมดที่มีการเปลี่บนแปลงในไดเรกทอรี่ CS337 นี้เข้าสู่รายการของ
+ไฟล์และได้เรกทอรี่ื่ที่จะได้รับการอัพโหลดเข้าสู่่รีโพสิทอรี่ CS337 บน github แล้วหลังจากนั้นต้องใช้คำสั่ง git commit เพื่อคอมมิตรายการ
+ไฟล์และไดเรกทอรี่เหล่านั้น 
+<pre>
+$ git add .
+$ git commit -m "first update"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'openstack@vm4.(none)')
+$ git config --global user.email "kasiditchanchio@gmail.com"
+$ git config --global user.name "kasidit"
+$ git commit -m "first update"
+[master d384b53] first update
+ 2 files changed, 3 insertions(+)
+ create mode 100644 Assign1/file1.txt
+ create mode 100644 myfirstfile.txt
+$
+</pre>
+จากคำสั่งข้างต้น ขอให้สังเกตุว่า git add . คือการเพิ่มรายการไฟล์และไดเรกทอรี่ทุกรายการที่อยู่ภายในไดเรกทอรี่ปัจจุบัน 
+สำหรับ git commit ออปชั่น -m ตามด้วยข้อความที่ระบุความหมายของการอัพเดทรีโพสิทอรี่แต่ละครั้ง หลังจากใช้คำสั่ง 
+git commit เป็นครั้งแรก คำสั่ง git จะแจ้งให้ผู้อ่านระบุข้อมูลชื่อและอีเมล์ของผู้อ่าน และต้องออกคำสั่ง git commit 
+อีกครั้งหนึ่ง 
+<p>
+    ในการอัพโหลดข้อมูล ผู้อ่านจะต้องใช้คำสั่ง git remote add เพื่อกำหนดให้คำสั่ง git รู้ว่าจะต้องอัพโหลดข้อมูลไป
+ที่ ssh เซิร์ฟเวอร์และรีโพสิทอรี่ใดของ github และให้ชื่อว่าเป็น origin แล้วหลังจากนั้นก็จะออกคำสั่ง git push origin master 
+เพื่อกำหนดชื่อ เวอร์ชั่นหลักหรือสาขา (branch) ของรีโพสิทอรี่ CS337 ที่จะอัพโหลดข้อมูลจากไดเรกทอรี่นี้ขึ้นไปว่าชื่อ master
+โดยใช้คำสั่งต่อไปนี้ 
+<pre>
+$ git remote add origin git@github.com:kasidit/CS337.git
+$ git push origin master
+Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+Enter passphrase for key '/home/openstack/.ssh/id_ed25519': 
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (5/5), 416 bytes | 208.00 KiB/s, done.
+Total 5 (delta 0), reused 0 (delta 0)
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/kasidit/CS337/pull/new/master
+remote: 
+To github.com:kasidit/CS337.git
+ * [new branch]      master -> master
+$
+</pre>
+ขอให้สังเกตุว่า เมื่อใช้คำสั่ง git push ผู้อ่านจะต้องป้อนพาสเฟสเพื่อถอดรหัสของไพรเวทคีย์
+<p>
+    หลังจากนั้น ผู้อ่านสามารถเช็คเว็บไซต์ github ที่รีโพสิทอรี่ CS337 ก็จะเห็นว่าไฟล์จากไดเรกทอรี่ CS337 ถูก
+อัพโหลดไปไว้ในนั้นแล้ว
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
 <h2>ติดตั้ง MPICH บน ubuntu 16.04</h2>
 <p><p>
 ผมสร้างเครื่อง Virtual Machine (VM) จำนวน 2 เครื่องโดยใช้ virtual box โดยที่กำหนดให้แต่ละเครื่องมี vcpu 2 cores และ 2 GB RAM และ network interfaces ดังนี้ 
