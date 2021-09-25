@@ -9,21 +9,26 @@
 <p>
     ผู้อ่านต้องกดปุ่มเครื่องหมายบวกข้างไอคอนของบัญชีของผู้อ่านและเลือก New repository และเว็บไซด์จะแสดงหน้าเว็บดังภาพ github-1
 <p>
-<img src="newrepo.png" width="950" height="150">
+<img src="newrepo.png" width="950" height="100">
 <p>
 ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
 <p><p>
     หลังจากนั้น บนหน้าเว็บเพจในภาพ github-2 กำหนดค่าชื่อเป็น CS337 และให้เป็น private (โดยที่ผู้อ่านจะสามารถระบุชื่อบัญชีผู้ใช้ระบบ github คนอื่นให้เข้ามาดูหรือร่วมใช้รีโพสิทอรี่นี้ได้ในภายหลัง)
     และกำหนดให้สร้างไฟล์ readme ตั้งแต่แรก สุดท้ายให้กด Create Repository ก็จะได้เว็บเพจดังภาพ github-3
 <p>
-<img src="repodetails.png" width="850" height="700">
+<img src="repodetails.png" width="850" height="600">
 <p>
 ภาพ github-2 กรอกรายละเอียดรีโพสิทอรี่ใหม่ <br>
 <p><p>
 <p>
-<img src="repocreated.png" width="850" height="500">
+<img src="repocreated.png" width="850" height="400">
 <p>
 ภาพ github-3 รีโพสิทอรี่ใหม่ <br> 
+<p><p>
+<p>
+<img src="repossh.png" width="850" height="400">
+<p>
+ภาพ github-4 ชื่อรีโพสิทอรี่แบบ ssh <br> 
 <p><p>
 <h3>2. สร้างไดเรกทอรี่ที่ต้องการจะ upload ข้อมูลและสร้างคีย์ </h3><br>
 <p>
