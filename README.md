@@ -8,10 +8,9 @@
 <h3>1. สร้างรีโพสิทอรี่ใหม่บนเว็บไซต์ github.com </h3><br>
 <p>
     ผู้อ่านต้องกดปุ่มเครื่องหมายบวกข้างไอคอนของบัญชีของผู้อ่านและเลือก New repository และเว็บไซด์จะแสดงหน้าเว็บดังภาพ github-1
-<p align="center">
-    <kbd><img src="newrepo.png" width="800" ><br></kbd>
-ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
-</p>
+<p>
+    <kbd><img src="newrepo.png" width="800" ></kbd>
+<p>
 <p>
 ภาพ github-1 การสร้างรีโพสิทอรี่ใหม่ <br> 
 <p><p>
