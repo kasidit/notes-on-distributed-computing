@@ -190,8 +190,9 @@ $ cat /etc/hosts
 10.90.0.27   hs-7
 </pre>
 จะเห็นว่ามี IP addresses สอง subnets คือ 10.90.0.0/24 และ 192.168.90.0/24  
+(under construction)
 <p><p>
-<h2>2. รันโปรแกรม terasort hadoop benchmark บน cloudera 5.13 quickstart VM </h2>
+<h2>รันโปรแกรม terasort hadoop benchmark บน cloudera 5.13 quickstart VM </h2>
 <p><p>
 การรัน terasort benchmark ใช้คำสั่งต่อไปนี้ ขั้นแรก หาไฟล์ hadoop-mapreduce-examples.jar
 <pre>
