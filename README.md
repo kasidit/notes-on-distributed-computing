@@ -354,8 +354,8 @@ Pending Invitation หายไป กลายเป็นผู้ร่วม
 <p>
 <a id="mpich1"><h2>ติดตั้ง MPICH บน ubuntu 16.04</h2>
 <p><p>
-สำหรับ บน  ubuntu  16.04  zผู้เขียนได้เคยทำสมุดจดไว้เบื้องต้นดังนี้ ผม
-<p><p>สร้างเครื่อง Virtual Machine (VM) จำนวน 2 เครื่องโดยใช้ virtual box โดยที่กำหนดให้แต่ละเครื่องมี vcpu 2 cores และ 2 GB RAM และ network interfaces ดังนี้ 
+สำหรับ บน  ubuntu  16.04  zผู้เขียนได้เคยทำสมุดจดไว้เบื้องต้นดังนี้ 
+<p><p>ผมสร้างเครื่อง Virtual Machine (VM) จำนวน 2 เครื่องโดยใช้ virtual box โดยที่กำหนดให้แต่ละเครื่องมี vcpu 2 cores และ 2 GB RAM และ network interfaces ดังนี้ 
 <ul>
 <li>Interface 1: เป็น NAT 
 <li>Interface 2: เป็น Host-Only Network และอยู่ใน subnet 192.168.56.0/24
