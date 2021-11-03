@@ -1,5 +1,5 @@
 <h1>Notes on Distributed and Parallel Processing</h1>
-ข้อมูลใหม่จะอยู่ที่ <a href="">wiki page</a>
+ข้อมูลใหม่จะอยู่ที่ <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/0.-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%88%E0%B8%94">wiki page</a>
 <ul>
 <li> <a href="#connectSAN">บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</a>
 <li> <a href="#simplymake">ทำความเข้าใจโปรแกรม make เบื้องต้น</a>
