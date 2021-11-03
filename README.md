@@ -1,5 +1,6 @@
 <h1>Notes on Distributed and Parallel Processing</h1>
 <ul>
+<li> <a href="#connectSAN">บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</a>
 <li> <a href="#simplymake">ทำความเข้าใจโปรแกรม make เบื้องต้น</a>
        <ul>
        <li> <a href="#m1">1. เป้าหมายที่เป็นชื่อไฟล์</a>
@@ -18,6 +19,11 @@
 <li> <a href="#mpich2">ติดตั้ง MPICH บน ubuntu 20.04</a> 
 <li> <a href="#mpich1">ติดตั้ง MPICH บน ubuntu 16.04</a> 
 </ul>
+<a id="connectSAN"><h2>บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</h2>
+<p><p>
+อ่านได้ที่ <a href="https://kasiditchanchio.medium.com/my-rough-idea-on-how-to-connect-ubuntu-20-04-server-to-a-dell-equallogic-san-storage-ed9b64283ae9">This Short Note</a>
+<p>
+<p>
 <a id="simplymake"><h2>ทำความเข้าใจโปรกรม make เบื้องต้น</h2>
 <p><p>
 Make เป็นซอฟต์แวร์ของระบบปฏิบัติการ UNIX สำหรับช่วยพัฒนาโปรแกรม โดย Make จะใช้กฎที่ผู้ใช้กำหนดในไฟล์ชื่อ Makefile สำหรับรันคำสั่ง 
