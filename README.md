@@ -1,6 +1,9 @@
 <h1>Notes on Distributed and Parallel Processing</h1>
-ข้อมูลใหม่จะอยู่ที่ <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/0.-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%88%E0%B8%94">wiki page</a>
+ข้อมูลใหม่จะอยู่ที่ <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/0.-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%88%E0%B8%94">wiki page</a> <br>
+<p>
+รายการบทความมีดังนี้:
 <ul>
+<li> <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/1.-%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89-mount--bind-%E0%B9%81%E0%B8%A5%E0%B8%B0-mount--make-private-%E0%B9%81%E0%B8%A5%E0%B8%B0-mount----move">เรียนรู้ mount bind และ mount make private และ mount move <i><b>(Wiki)</b></i></a>
 <li> <a href="#connectSAN">บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</a>
 <li> <a href="#simplymake">ทำความเข้าใจโปรแกรม make เบื้องต้น</a>
        <ul>
