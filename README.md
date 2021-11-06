@@ -2,10 +2,11 @@
 ข้อมูลใหม่จะอยู่ที่ <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/0.-%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%94%E0%B8%88%E0%B8%94">wiki page</a> <br>
 <p>
 รายการบทความมีดังนี้:
-<ul>
+<ol>
 <li> <a href="https://github.com/kasidit/container-study/wiki/1.-%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%99%E0%B9%80%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%9A%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%95%E0%B9%89%E0%B8%99">โครงสร้างของคอนเทนเนอร์เบื้องต้น (study 1)</a>
 <li> <a href="https://github.com/kasidit/container-study/wiki/2.-%E0%B8%97%E0%B8%94%E0%B8%A5%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%97%E0%B8%99%E0%B9%80%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%95%E0%B8%99%E0%B9%80%E0%B8%AD%E0%B8%87">ทดลองสร้างคอนเทนเนอร์ด้วยตนเอง (study 2)</a>
 <li> <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/1.-%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%A3%E0%B8%B9%E0%B9%89-mount--bind-%E0%B9%81%E0%B8%A5%E0%B8%B0-mount--make-private-%E0%B9%81%E0%B8%A5%E0%B8%B0-mount----move">เรียนรู้ mount bind และ mount make private และ mount move <i><b>(Wiki)</b></i></a>
+<li> <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/2.-การสร้างรูทใหม่ในเม้าท์เนมสเปซด้วยคำสั่ง-pivot_root">การสร้างรูทใหม่ในเม้าท์เนมสเปซด้วยคำสั่ง-pivot_root</a>
 <li> <a href="#connectSAN">บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</a>
 <li> <a href="#simplymake">ทำความเข้าใจโปรแกรม make เบื้องต้น</a>
        <ul>
@@ -24,7 +25,7 @@
       </ul>
 <li> <a href="#mpich2">ติดตั้ง MPICH บน ubuntu 20.04</a> 
 <li> <a href="#mpich1">ติดตั้ง MPICH บน ubuntu 16.04</a> 
-</ul>
+</ol>
 <a id="connectSAN"><h2>บันทึกการเชื่อมต่อ Ubuntu 20.04 server ผ่านอินเตอร์เฟส iSCSI กับ Dell Equallogic SAN storage</h2>
 <p><p>
 อ่านได้ที่ <a href="https://kasiditchanchio.medium.com/my-rough-idea-on-how-to-connect-ubuntu-20-04-server-to-a-dell-equallogic-san-storage-ed9b64283ae9">This Short Note</a>
