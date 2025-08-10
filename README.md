@@ -4,7 +4,7 @@
 รายการบทความมีดังนี้:
 <ol>
 <li><a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/LVM-and-Logical-Volume-Extension">LVM คืออะไร และการขยายขนาด Default LVM partition บน Ubuntu</li>
-<li><a href="">การรวม LVM partitions หลายอันเข้าเป็นหนึ่ง Partition</a></li>
+<li><a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/Merge-LVM-partitions-into-one">การรวม LVM partitions หลายอันเข้าเป็นหนึ่ง Partition</a></li>
 <li> <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/install-llama-and-alpaca-llm-models"> การติดตั้งและทดลองใช้ llama และ alpaca models บน ubuntu 20.04</a>
 <li> <a href="https://github.com/kasidit/notes-on-distributed-computing/wiki/turn-on-Dell-R720-server-using-DRAC">การเปิด server เครื่อผ่าน DRAC CLI</a>
 <li> <a href="https://github.com/kasidit/container-study/wiki/1-structure-of-container">โครงสร้างของคอนเทนเนอร์เบื้องต้น (study 1)</a>
